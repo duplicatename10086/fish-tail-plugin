@@ -1,0 +1,14 @@
+name: astrbot_plugin_fish_tail
+display_name: 鱼的尾巴和插件
+short_desc: 根据上下文给鲸鲸回复缀上小括号尾巴动作与神态
+desc: >-
+  动作导演插件：不改人设，只在 LLM 请求前根据上下文判定鱼此刻的心情，
+  注入动态指令让模型用中文小括号（）生成尾巴、鳍、鳞片的动作与神态。
+  内置种子动作库、自由发散指令、最近动作去重。PWA/webchat 同样生效。
+version: 1.0.0
+author: 鲸鲸的小惊云
+astrbot_version: ">=4.29.0"
+tags:
+  - 角色扮演
+  - 动作渲染
+  - 尾巴

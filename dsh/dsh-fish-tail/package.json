@@ -1,0 +1,23 @@
+{
+  "name": "dsh-fish-tail",
+  "version": "1.0.0",
+  "description": "鱼的尾巴和插件（DSH 适配层）：根据上下文判定鱼的心情，动态注入 system 指令，让模型用中文小括号（）给回复缀上尾巴/鳍/鳞片的动作神态。",
+  "type": "module",
+  "main": "lib/index.js",
+  "keywords": ["dsh", "dsh-plugin", "fish-tail", "system-prompt", "cordis"],
+  "dsh": {
+    "bundle": {},
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.3": "compatible",
+        "0.2.2-alpha.2": "compatible",
+        "0.2.2-rc.1": "compatible"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.0-rc.1"
+  },
+  "license": "MIT"
+}
