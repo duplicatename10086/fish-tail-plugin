@@ -197,15 +197,16 @@ export function apply(ctx) {
   })
 
   // 3) 抓每次回复文本，抽括号动作记入最近缓存（去重用）
-  ctx.on('llm/stream', async (options, next) => {
+  ctx.on('llm/stream', (options, next) => {
     const sid = options?.sessionId ? String(options.sessionId) : 'default'
-    const stream = await next()
-    // 包装 async iterable，边转发边收集文本
+    const streamOrPromise = next()
+    // 外层必须同步返回 async iterable（不能 async hook），否则上游 next() 拿到 Promise
+    // 内层 await 兼容 next() 返回流或 Promise 两种写法
     const self = this
     async function* collect() {
       let buf = ''
       try {
-        for await (const chunk of stream) {
+        for await (const chunk of await streamOrPromise) {
           try {
             const t = chunk?.type === 'text' || chunk?.type === 'delta'
               ? (chunk.text || chunk.delta || '')

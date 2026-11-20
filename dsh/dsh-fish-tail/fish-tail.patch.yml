@@ -1,0 +1,4 @@
+# dsh-fish-tail 的 bundle 补丁层：让插件在设置页显示，并把 hook 挂进组合树。
+- insert:
+    - id: dsh-fish-tail
+      name: 'dsh-fish-tail'
